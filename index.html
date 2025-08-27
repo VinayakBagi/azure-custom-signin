@@ -13,17 +13,255 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://lambent-haupia-726004.netlify.app/assets/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://lambent-haupia-726004.netlify.app/assets/css/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://lambent-haupia-726004.netlify.app/assets/css/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://lambent-haupia-726004.netlify.app/assets/css/all.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link rel="stylesheet" href="assets/css/common-css.css" />
-    <link rel="stylesheet" href="assets/css/login-style.css" />
-    <title>LOGIN PAGE</title>
+    <link
+      rel="stylesheet"
+      href="https://lambent-haupia-726004.netlify.app/assets/css/common-css.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://lambent-haupia-726004.netlify.app/assets/css/login-style.css"
+    />
+
+    <!-- Azure B2C Specific Styles -->
+    <style>
+      /* Azure B2C Specific Styles */
+      #api {
+        width: 100%;
+      }
+
+      /* B2C Main Heading */
+      #api .heading {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      #api .heading h1 {
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 0.5rem !important;
+        color: #333 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Form Intro */
+      #api .intro {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      #api .intro h2 {
+        font-size: 1rem !important;
+        font-weight: 400 !important;
+        color: #666 !important;
+        margin: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Form Container */
+      #api .localAccount {
+        width: 100%;
+      }
+
+      /* B2C Entry Items */
+      #api .entry-item {
+        margin-bottom: 1.5rem !important;
+      }
+
+      /* B2C Labels */
+      #api label {
+        display: block !important;
+        margin-bottom: 0.5rem !important;
+        font-weight: 500 !important;
+        color: #333 !important;
+        font-size: 14px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* Password Label Container */
+      #api .password-label {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      #api .password-label label {
+        margin-bottom: 0 !important;
+      }
+
+      /* B2C Input Fields */
+      #api input[type="email"],
+      #api input[type="password"],
+      #api #email,
+      #api #password {
+        width: 100% !important;
+        padding: 12px 15px !important;
+        border: 1px solid #ddd !important;
+        border-radius: 4px !important;
+        font-size: 16px !important;
+        box-sizing: border-box !important;
+        background: white !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      #api input:focus {
+        outline: none !important;
+        border-color: #007bff !important;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25) !important;
+      }
+
+      /* Error State Input */
+      #api input.highlightError {
+        border-color: #dc3545 !important;
+        box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
+      }
+
+      /* B2C Error Messages */
+      #api .error.pageLevel {
+        margin-bottom: 1rem !important;
+        padding: 10px !important;
+        background: #f8d7da !important;
+        border: 1px solid #f5c6cb !important;
+        border-radius: 4px !important;
+        display: none !important;
+      }
+
+      #api .error.pageLevel p {
+        color: #dc3545 !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      #api .error.itemLevel {
+        margin-bottom: 0.5rem !important;
+      }
+
+      #api .error.itemLevel p {
+        color: #dc3545 !important;
+        font-size: 12px !important;
+        margin: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Buttons */
+      #api .buttons {
+        margin-top: 2rem !important;
+      }
+
+      #api button#next,
+      #api .buttons button {
+        width: 100% !important;
+        padding: 12px !important;
+        background: #007bff !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      #api button#next:hover,
+      #api .buttons button:hover {
+        background: #0056b3 !important;
+      }
+
+      /* B2C Divider */
+      #api .divider {
+        text-align: center !important;
+        margin: 2rem 0 !important;
+        position: relative !important;
+      }
+
+      #api .divider::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 1px !important;
+        background: #eee !important;
+        z-index: 1 !important;
+      }
+
+      #api .divider h2 {
+        background: white !important;
+        padding: 0 1rem !important;
+        font-size: 14px !important;
+        color: #666 !important;
+        margin: 0 !important;
+        display: inline-block !important;
+        position: relative !important;
+        z-index: 2 !important;
+        font-weight: 400 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Create Account */
+      #api .create {
+        text-align: center !important;
+        margin-top: 1.5rem !important;
+      }
+
+      #api .create p {
+        color: #666 !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Links */
+      #api a#forgotPassword,
+      #api a#createAccount,
+      #api .create a,
+      #api .password-label a {
+        color: #007bff !important;
+        text-decoration: none !important;
+        font-size: 14px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      #api a#forgotPassword:hover,
+      #api a#createAccount:hover,
+      #api .create a:hover,
+      #api .password-label a:hover {
+        text-decoration: underline !important;
+      }
+    </style>
+
+    <title>Sign In - Consolidated Hospitality Supplies</title>
   </head>
 
   <body>
@@ -31,58 +269,34 @@
       <div class="login-carousel">
         <div class="slider owl-carousel">
           <div class="slide-item">
-            <img src="./assets/images/login-slide-img.jpg" alt="" />
+            <img
+              src="https://lambent-haupia-726004.netlify.app/assets/images/login-slide-img.jpg"
+              alt=""
+            />
           </div>
           <div class="slide-item">
-            <img src="./assets/images/chs-login-img-2.jpg" alt="" />
+            <img
+              src="https://lambent-haupia-726004.netlify.app/assets/images/chs-login-img-2.jpg"
+              alt=""
+            />
           </div>
         </div>
       </div>
       <div class="login-body">
         <div class="login-header">
           <div class="login-logo">
-            <a href="#"><img src="assets/images/chs-logo.svg" alt="" /></a>
+            <a href="#"
+              ><img
+                src="https://lambent-haupia-726004.netlify.app/assets/images/chs-logo.svg"
+                alt="Consolidated Hospitality Supplies"
+            /></a>
           </div>
-          <!-- <div class="sign-up d-flex align-items-center justify-content-center">
-            You don't have any account?
-            <button
-              type="button"
-              class="sign-up-btn"
-              onclick="location.href = 'sign-up.html';"
-            >
-              <span class="material-symbols-rounded text-2xl">person</span> Sign
-              Up
-            </button>
-          </div> -->
         </div>
 
         <div class="login-form-sec">
           <div class="login-form-body">
+            <!-- Azure B2C will inject the sign-in form here -->
             <div id="api" role="main"></div>
-            <!-- <div class="login-form-header">
-						<div class="lm-header-title">Sign in</div>
-						<div class="lm-header-text">Sign in with your email address</div>
-					</div>
-                    <div class="login-form">
-                        <form>
-                            <div class="form-group">
-                                <label class="form-label" for="username">Email Address</label>
-                                <input type="text" class="form-control email-icon" placeholder="Email Address"
-                                    id="username">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="username">Password</label>
-                                <input type="password" class="form-control email-icon" placeholder="Password" id="username">
-                            </div>
-                            <div class="form-group relative d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-1">
-                                </div>
-                                <a href="#" class="frogot-p-link">Forgot your password?</a>
-                            </div>
-                            <button type="button" onclick="location.href = 'sso-login.html';"> <span
-                                    class="material-symbols-outlined">key</span> Log in</button>
-                        </form>
-                    </div> -->
           </div>
         </div>
 
@@ -99,8 +313,8 @@
     </section>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="https://lambent-haupia-726004.netlify.app/assets/js/bootstrap.min.js"></script>
+    <script src="https://lambent-haupia-726004.netlify.app/assets/js/owl.carousel.min.js"></script>
+    <script src="https://lambent-haupia-726004.netlify.app/assets/js/script.js"></script>
   </body>
 </html>
