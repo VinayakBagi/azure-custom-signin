@@ -1,0 +1,241 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* CSS Document */
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    box-sizing: border-box;
+    border: none;
+}
+
+body {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: auto !important;
+    overflow-x: hidden !important;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none !important;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+    font-weight: normal;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+p {
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+ul {
+    margin: 0;
+}
+
+input,
+select,
+button,
+textarea {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ced9df;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ced9df;
+}
+
+:root {
+    --primary-font-family: "Nunito Sans", sans-serif;
+    --light-gray-bg: #F8F9FA;
+    --primary-color: #184997;
+    --secondary-color: #1563e1;
+    --primary-text-color: #231F20;
+    --brown-color: #CD5B1B;
+    --blackcolor: #000;
+    --whitecolor: #FFF;
+    --whitelightcolor: #f3f4f8;
+    --whitelightcolor2: #F6F7F9;
+    --whitelightcolor3: #f4f4f5;
+    --light-blue: #EBF4FF;
+    --deep-nevy-blue: #091533;
+    --light-yellow: #FFD583;
+    --gery: #5B5D6B;
+    --deepgery: #282A3A;
+    --lightgery: #D2D4DA;
+    --gery400: #757883;
+    --gery500: #DFE3E8;
+    --border-color: #D9D9D9;
+    --border-light: #DDDDDD;
+    --table-border1: #8EBFE0;
+    --table-border2: #EAB292;
+    --table-border3: #9BC960;
+    --table-border4: #8192EE;
+    --table-border5: #EC8A8A;
+    --bg-light: #EDEDED;
+    --bg-radio: #CCEAFF;
+    --border-radio: #E4E5EA;
+    --btn-save: #37B068;
+    --text-xxs: 0.6875rem;
+    --text-xs: 0.8125rem;
+    --text-2sm: 0.875rem;
+    --text-sm: 0.938rem;
+    --text-normal: 1rem;
+    --text-2md: 1.25rem;
+    --text-md: 1.1875rem;
+    --text-lg: 1.4375rem;
+    --text-xl: 1.75rem;
+    --text-2xl: 2rem;
+    --text-3xl: 2.5rem;
+    --text-4xl: 3rem;
+    --max-width: 1440px;
+    --brand-font-weight-light: 300;
+    --brand-font-weight-normal: normal;
+    --brand-font-weight-semi-bold: 500;
+    --brand-font-weight-medium: 600;
+    --brand-font-weight-bold: bold;
+    --brand-font-weight-bolder: 800;
+    --box-shadow: 0 3px 4px rgba(42, 52, 59, .08);
+}
+
+.max-width {
+    max-width: 1540px;
+    width: 100%;
+}
+
+.full-width {
+    width: 100% !important;
+}
+
+.margin-auto {
+    margin: 0 auto;
+}
+
+.p-20 {
+    padding: 0 20px;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.all-btn {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.all-btn:hover {
+    opacity: 0.8 !important;
+}
+
+button {
+    background: transparent;
+    cursor: pointer;
+}
+
+/*------ALL DEFAULT CSS------*/
+.mt-40 {
+    margin-top: 40px !important;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000000c9;
+    height: 100vh;
+    width: 100%;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000000c9;
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+    transition: all ease 0.5s;
+    display: none;
+}
+
+/* Scrollbar CSS */
+.scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.modal-scroll-height {
+    height: calc(80vh - 352px);
+    overflow-y: auto;
+    margin-right: 15px;
+}
