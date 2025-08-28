@@ -11,14 +11,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://lambent-haupia-726004.netlify.app/assets/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://lambent-haupia-726004.netlify.app/assets/css/owl.carousel.min.css"
     />
     <link
       rel="stylesheet"
@@ -41,8 +36,76 @@
       href="https://lambent-haupia-726004.netlify.app/assets/css/login-style.css"
     />
 
-    <!-- Azure B2C Specific Styles -->
     <style>
+      .login-sec {
+        display: flex;
+        min-height: 100vh;
+      }
+      /* Pure CSS Carousel - Keep original positioning */
+      .login-carousel {
+        flex: 1;
+        position: relative;
+        order: 1;
+        min-width: 50%;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      /* Login form - Keep original positioning */
+      .login-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        order: 2;
+        min-width: 50%;
+      }
+
+      .slider {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slide-container {
+        display: flex;
+        width: 200%;
+        height: 100%;
+        animation: carousel-slide 8s infinite;
+      }
+
+      .slide-item {
+        width: 50%;
+        height: 100vh;
+        flex-shrink: 0;
+      }
+
+      .slide-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Carousel sliding animation */
+      @keyframes carousel-slide {
+        0% {
+          transform: translateX(0);
+        }
+        45% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-50%);
+        }
+        95% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
       /* Azure B2C Specific Styles */
       #api {
         width: 100%;
@@ -266,18 +329,20 @@
   <body>
     <section class="login-sec">
       <div class="login-carousel">
-        <div class="slider owl-carousel">
-          <div class="slide-item">
-            <img
-              src="https://lambent-haupia-726004.netlify.app/assets/images/login-slide-img.jpg"
-              alt=""
-            />
-          </div>
-          <div class="slide-item">
-            <img
-              src="https://lambent-haupia-726004.netlify.app/assets/images/chs-login-img-2.jpg"
-              alt=""
-            />
+        <div class="slider">
+          <div class="slide-container">
+            <div class="slide-item">
+              <img
+                src="https://lambent-haupia-726004.netlify.app/assets/images/login-slide-img.jpg"
+                alt="Login Image 1"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="https://lambent-haupia-726004.netlify.app/assets/images/chs-login-img-2.jpg"
+                alt="Login Image 2"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -310,10 +375,7 @@
         </div>
       </div>
     </section>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://lambent-haupia-726004.netlify.app/assets/js/bootstrap.min.js"></script>
-    <script src="https://lambent-haupia-726004.netlify.app/assets/js/owl.carousel.min.js"></script>
-    <script src="https://lambent-haupia-726004.netlify.app/assets/js/script.js"></script>
+
+    <!-- No JavaScript needed -->
   </body>
 </html>
