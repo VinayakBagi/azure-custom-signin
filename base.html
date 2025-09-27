@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Azure B2C CORS Configuration -->
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta
+      http-equiv="Access-Control-Allow-Methods"
+      content="GET, POST, OPTIONS"
+    />
+    <meta http-equiv="Access-Control-Allow-Headers" content="*" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://pub-06554eb0fdbb449aad9fec93030ec0db.r2.dev/chs_vendorportal/assets/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pub-06554eb0fdbb449aad9fec93030ec0db.r2.dev/chs_vendorportal/assets/css/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pub-06554eb0fdbb449aad9fec93030ec0db.r2.dev/chs_vendorportal/assets/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pub-06554eb0fdbb449aad9fec93030ec0db.r2.dev/chs_vendorportal/assets/css/common-css.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pub-06554eb0fdbb449aad9fec93030ec0db.r2.dev/chs_vendorportal/assets/css/login-style.css"
+    />
+
+    <style>
+      .login-sec {
+        display: flex;
+        min-height: 100vh;
+      }
+      /* Pure CSS Carousel - Keep original positioning */
+      .login-carousel {
+        flex: 1;
+        position: relative;
+        order: 1;
+        min-width: 50%;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      /* Login form - Keep original positioning */
+      .login-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        order: 2;
+        min-width: 50%;
+      }
+
+      .slider {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slide-container {
+        display: flex;
+        height: 100%;
+        animation: carousel-slide 8s infinite;
+      }
+
+      .slide-item {
+        flex-shrink: 0;
+        height: 100vh;
+      }
+
+      .slide-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Carousel sliding animation - Dynamic based on number of slides */
+      .slide-container {
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+        animation-name: carousel-slide;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes carousel-slide {
+        0% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-50%);
+        }
+        45% {
+          transform: translateX(-50%);
+        }
+        50% {
+          transform: translateX(-100%);
+        }
+        70% {
+          transform: translateX(-100%);
+        }
+        75% {
+          transform: translateX(-150%);
+        }
+        95% {
+          transform: translateX(-150%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* Azure B2C Specific Styles */
+      #api {
+        width: 100%;
+      }
+
+      /* B2C Main Heading */
+      #api .heading {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      #api .heading h1 {
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 0.5rem !important;
+        color: #333 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Form Intro */
+      #api .intro {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      #api .intro h2 {
+        font-size: 1rem !important;
+        font-weight: 400 !important;
+        color: #666 !important;
+        margin: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Form Container */
+      #api .localAccount {
+        width: 100%;
+      }
+
+      /* B2C Entry Items */
+      #api .entry-item {
+        margin-bottom: 1.5rem !important;
+      }
+
+      /* B2C Labels */
+      #api label {
+        display: block !important;
+        margin-bottom: 0.5rem !important;
+        font-weight: 500 !important;
+        color: #333 !important;
+        font-size: 14px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+        margin-top: 2rem !important;
+      }
+
+      /* Password Label Container */
+      #api .password-label {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      #api .password-label label {
+        margin-bottom: 0 !important;
+      }
+
+      /* B2C Input Fields */
+      #api input[type="email"],
+      #api input[type="password"],
+      #api input[type="text"],
+      #api #email,
+      #api #password {
+        width: 100% !important;
+        padding: 12px 15px !important;
+        border: 1px solid #ddd !important;
+        border-radius: 4px !important;
+        font-size: 16px !important;
+        box-sizing: border-box !important;
+        background: white !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      #api input:focus {
+        outline: none !important;
+        border-color: #007bff !important;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25) !important;
+      }
+
+      /* Error State Input */
+      #api input.highlightError {
+        border-color: #dc3545 !important;
+        box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
+      }
+
+      /* B2C Error Messages */
+      #api .error.pageLevel {
+        margin-bottom: 1rem !important;
+        padding: 10px !important;
+        background: #f8d7da !important;
+        border: 1px solid #f5c6cb !important;
+        border-radius: 4px !important;
+        display: none !important;
+      }
+
+      #api .error.pageLevel p {
+        color: #dc3545 !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      #api .error.itemLevel {
+        margin-bottom: 0.5rem !important;
+      }
+
+      #api .error.itemLevel p {
+        color: #dc3545 !important;
+        font-size: 12px !important;
+        margin: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segue UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      #api .sendCode {
+        margin-bottom: 0 !important;
+      }
+
+      /* B2C Buttons */
+      #api .buttons {
+        margin-top: 2rem !important;
+      }
+
+      #api button#next,
+      #api .buttons button {
+        width: 100% !important;
+        padding: 12px !important;
+        background: #007bff !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+        margin-bottom: 2rem;
+      }
+
+      #api button#next:hover,
+      #api .buttons button:hover {
+        background: #0056b3 !important;
+      }
+
+      /* B2C Divider */
+      #api .divider {
+        text-align: center !important;
+        margin: 2rem 0 !important;
+        position: relative !important;
+      }
+
+      #api .divider::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 1px !important;
+        background: #eee !important;
+        z-index: 1 !important;
+      }
+
+      #api .divider h2 {
+        background: white !important;
+        padding: 0 1rem !important;
+        font-size: 14px !important;
+        color: #666 !important;
+        margin: 0 !important;
+        display: inline-block !important;
+        position: relative !important;
+        z-index: 2 !important;
+        font-weight: 400 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Create Account */
+      #api .create {
+        text-align: center !important;
+        margin-top: 1.5rem !important;
+      }
+
+      #api .create p {
+        color: #666 !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      /* B2C Links */
+      #api a#forgotPassword,
+      #api a#createAccount,
+      #api .create a,
+      #api .password-label a {
+        color: #007bff !important;
+        text-decoration: none !important;
+        font-size: 14px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      }
+
+      #api a#forgotPassword:hover,
+      #api a#createAccount:hover,
+      #api .create a:hover,
+      #api .password-label a:hover {
+        text-decoration: underline !important;
+      }
+    </style>
+
+    <title>Consolidated Hospitality Supplies</title>
+
+    <!-- CRITICAL: Script must be in HEAD with defer for Azure B2C -->
+    <script defer>
+      (function () {
+        // API Configuration
+        const API_BASE_URL =
+          "https://dev-vendor-ch-supplies.cfapps.us10-001.hana.ondemand.com";
+        const API_ENDPOINT = "/api/content-vendors";
+        const API_PARAMS = "locale=en&filters[slug]=common&populate=*&pLevel=5";
+
+        // Global variables
+        let commonContent = null;
+        let logo = "";
+        let vendorlogo = "";
+        let media = [];
+
+        // Image resize utility
+        function cloudflareResize(url, options = {}) {
+          if (!url) return "";
+          const { width = 250, format = "webp", quality = 80 } = options;
+          const separator = url.includes("?") ? "&" : "?";
+          return `${url}${separator}w=${width}&f=${format}&q=${quality}`;
+        }
+
+        // Helper function
+        function getDataByComponentName(bodyArray, componentName) {
+          if (!bodyArray || !Array.isArray(bodyArray)) return [];
+          return bodyArray.filter((item) => item.__component === componentName);
+        }
+
+        // Data mapping
+        function mapApiData(apiResponse) {
+          if (!apiResponse.data || !apiResponse.data.length) {
+            console.warn("No data found in API response");
+            return;
+          }
+
+          commonContent = apiResponse.data[0];
+
+          // Map logos
+          const logoComponents = getDataByComponentName(
+            commonContent.body,
+            "vendor.logo"
+          );
+
+          if (logoComponents && logoComponents.length) {
+            const firstLogoComponent = logoComponents[0];
+            if (firstLogoComponent?.logo?.[0]?.url) {
+              logo = cloudflareResize(firstLogoComponent.logo[0].url, {
+                width: 250,
+                format: "webp",
+                quality: 80,
+              });
+            }
+
+            if (logoComponents.length > 1) {
+              const secondLogoComponent = logoComponents[1];
+              if (secondLogoComponent?.logo?.[0]?.url) {
+                vendorlogo = cloudflareResize(secondLogoComponent.logo[0].url, {
+                  width: 250,
+                  format: "webp",
+                  quality: 80,
+                });
+              }
+            }
+          }
+
+          // Map carousel images
+          const bannerComponent = getDataByComponentName(
+            commonContent.body,
+            "vendor.media"
+          );
+          if (bannerComponent?.length) {
+            const rawImages =
+              bannerComponent[0].Images || bannerComponent[0].images || [];
+            media = rawImages.map((image) => ({
+              ...image,
+              url: cloudflareResize(image.url, {
+                width: 800,
+                format: "webp",
+                quality: 80,
+              }),
+            }));
+          }
+
+          updateUI();
+        }
+
+        // Update UI
+        function updateUI() {
+          if (logo) {
+            const logoElement = document.getElementById("mainLogo");
+            if (logoElement) {
+              logoElement.src = logo;
+              logoElement.style.display = "block";
+            }
+          }
+
+          if (commonContent?.i18n) {
+            const copyrightElement = document.querySelector(".lf-copyright");
+            if (copyrightElement && commonContent.i18n["label.copyright"]) {
+              copyrightElement.textContent =
+                commonContent.i18n["label.copyright"];
+            }
+
+            const termsLink = document.querySelector('a[href*="terms"]');
+            if (termsLink) {
+              if (commonContent.i18n["link.tearmsAndConditions"]) {
+                termsLink.href = commonContent.i18n["link.tearmsAndConditions"];
+              }
+              if (commonContent.i18n["label.tearmsAndConditions"]) {
+                termsLink.textContent =
+                  commonContent.i18n["label.tearmsAndConditions"];
+              }
+            }
+
+            const privacyLink = document.querySelector('a[href*="privacy"]');
+            if (privacyLink) {
+              if (commonContent.i18n["link.privacyPolicy"]) {
+                privacyLink.href = commonContent.i18n["link.privacyPolicy"];
+              }
+              if (commonContent.i18n["label.privacyPolicy"]) {
+                privacyLink.textContent =
+                  commonContent.i18n["label.privacyPolicy"];
+              }
+            }
+          }
+
+          if (media && media.length > 0) {
+            createDynamicCarousel();
+          }
+        }
+
+        // Create carousel
+        function createDynamicCarousel() {
+          const slideContainer = document.getElementById("slideContainer");
+          if (!slideContainer || !media.length) return;
+
+          slideContainer.innerHTML = "";
+
+          if (media.length === 1) {
+            slideContainer.style.width = "100%";
+            slideContainer.style.animation = "none";
+
+            const slideItem = document.createElement("div");
+            slideItem.className = "slide-item";
+            slideItem.style.width = "100%";
+
+            const img = document.createElement("img");
+            img.src = media[0].url;
+            img.alt = media[0].alternativeText || "Login Image";
+
+            slideItem.appendChild(img);
+            slideContainer.appendChild(slideItem);
+
+            return;
+          }
+
+          const containerWidth = media.length * 100 + "%";
+          slideContainer.style.width = containerWidth;
+          slideContainer.style.animation = "carousel-slide 8s infinite";
+
+          const slideWidth = 100 / media.length + "%";
+
+          media.forEach((image, index) => {
+            const slideItem = document.createElement("div");
+            slideItem.className = "slide-item";
+            slideItem.style.width = slideWidth;
+
+            const img = document.createElement("img");
+            img.src = image.url;
+            img.alt = image.alternativeText || `Login Image ${index + 1}`;
+
+            slideItem.appendChild(img);
+            slideContainer.appendChild(slideItem);
+          });
+
+          createDynamicAnimation();
+        }
+
+        // Dynamic animation
+        function createDynamicAnimation() {
+          if (!media.length) return;
+
+          const existingStyle = document.getElementById("dynamicCarouselStyle");
+          if (existingStyle) existingStyle.remove();
+
+          const slideCount = media.length;
+          const pauseDuration = 20;
+
+          let keyframes = "";
+
+          for (let i = 0; i <= slideCount; i++) {
+            const startPercent = i * (100 / (slideCount + 1));
+            const endPercent = startPercent + pauseDuration;
+            const translateX = -(i * (100 / slideCount));
+
+            if (i === slideCount) {
+              keyframes += `${startPercent}% { transform: translateX(${translateX}%); } 100% { transform: translateX(0%); }`;
+            } else {
+              keyframes += `${startPercent}% { transform: translateX(${translateX}%); } ${Math.min(
+                endPercent,
+                95
+              )}% { transform: translateX(${translateX}%); }`;
+            }
+          }
+
+          const dynamicStyle = document.createElement("style");
+          dynamicStyle.id = "dynamicCarouselStyle";
+          dynamicStyle.textContent = `@keyframes carousel-slide { ${keyframes} } .slide-container { animation-duration: ${
+            slideCount * 3
+          }s !important; }`;
+
+          document.head.appendChild(dynamicStyle);
+        }
+
+        // API call using XHR for B2C compatibility
+        function callContentVendorsAPI() {
+          const fullUrl = `${API_BASE_URL}${API_ENDPOINT}?${API_PARAMS}`;
+
+          const xhr = new XMLHttpRequest();
+          xhr.open("GET", fullUrl, true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.setRequestHeader("Accept", "application/json");
+
+          xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              try {
+                const data = JSON.parse(xhr.responseText);
+                mapApiData(data);
+              } catch (e) {
+                console.error("Parse error:", e);
+              }
+            } else {
+              console.error("HTTP error:", xhr.status);
+            }
+          };
+
+          xhr.onerror = function () {
+            console.error("XHR network error");
+          };
+
+          xhr.send();
+        }
+
+        // Use MutationObserver to wait for DOM elements (B2C requirement)
+        function waitForElement(selector, callback) {
+          const element = document.querySelector(selector);
+          if (element) {
+            callback(element);
+            return;
+          }
+
+          const observer = new MutationObserver(function (mutations, me) {
+            const element = document.querySelector(selector);
+            if (element) {
+              callback(element);
+              me.disconnect();
+            }
+          });
+
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+          });
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            callContentVendorsAPI();
+          });
+        } else {
+          callContentVendorsAPI();
+        }
+
+        // Also wait for slideContainer specifically
+        waitForElement("#slideContainer", function () {
+          if (media.length > 0) {
+            createDynamicCarousel();
+          }
+        });
+      })();
+    </script>
+  </head>
+
+  <body>
+    <section class="login-sec">
+      <div class="login-carousel">
+        <div class="slider">
+          <div class="slide-container" id="slideContainer">
+            <!-- Slides will be dynamically generated -->
+          </div>
+        </div>
+      </div>
+      <div class="login-body">
+        <div class="login-header">
+          <div class="login-logo">
+            <a href="#"
+              ><img
+                src=""
+                alt="Consolidated Hospitality Supplies"
+                style="display: none"
+                id="mainLogo"
+            /></a>
+          </div>
+        </div>
+
+        <div class="login-form-sec">
+          <div class="login-form-body">
+            <!-- Azure B2C will inject the sign-in form here -->
+            <div id="api" role="main"></div>
+          </div>
+        </div>
+
+        <div class="login-footer">
+          <div class="lf-copyright">
+            © 2024 Consolidated Hospitality Supplies
+          </div>
+          <ul>
+            <li>
+              <a href="https://www.americanhotel.com/terms-and-conditions"
+                >Terms of Use</a
+              >
+            </li>
+            <li>
+              <a href="https://www.americanhotel.com/privacy">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
